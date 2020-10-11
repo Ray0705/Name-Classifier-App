@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <link rel="shortcut icon" href="https://img.icons8.com/emoji/344/slightly-smiling-face.png">
+    <title>Name Classifier</title>
+  </head>
+  <body style = "background-color:#dcdde1">
+
+  </body>
+</html>
+{% extends "bootstrap/base.html" %}
+{% block content %}
+<div class="container">
+  <div class="jumbotron text-center" style = "background-color:#273c75">
+    <h2 style="color:#f5f6fa;">Gender Classifier App </h2>
+    <p style="color:#f5f6fa;">Using Machine Learning</p>
+  </div>
+</div>
+
+<div class="panel-group" style="padding: 10px 300px;">
+    <div class="panel panel-primary">
+      <div class="panel-body text-center">
+  <form class="" action="{{url_for('predict')}}" method="post">
+    <label for="">Enter a Name</label>
+    <input size="20" type="text" name="namequery" placeholder="Enter Name here" value="">
+    <p></p>
+    <label for="">Model Selection</label>
+    <select class="" name="model">
+        <option value="">Choose a Model</option>
+        <option value="logit">Logistic Regression</option>
+        <option value="nb">Naive Bayes</option>
+    </select>
+    <p></p>
+    <button type="submit" class="btn btn-primary">Predict</button>
+  </form>
+
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static',filename = 'css/styles.css')}}">
+{% endblock %}
